@@ -1,0 +1,116 @@
+<div class="bg">
+  <form class="example-form formularioCorpo" [formGroup]="cadastroForm" (ngSubmit)="onEnviar()">
+
+
+    <mat-form-field class="example-full-width campoForm">
+      <mat-label>Nome</mat-label>
+      <input matInput formControlName="nome">
+
+      <mat-error *ngIf="cadastroForm.controls.nome.hasError('required')">É obrigatório inserir o nome</mat-error>
+
+    </mat-form-field>
+
+    <br />
+
+    <mat-form-field class="example-full-width campoForm">
+      <mat-label>Sobrenome</mat-label>
+      <input matInput formControlName="sobrenome">
+
+      <mat-error *ngIf="cadastroForm.controls.sobrenome.hasError('required')">É obrigatório inserir o sobrenome</mat-error>
+
+    </mat-form-field>
+
+    <br />
+
+    <mat-form-field class="example-full-width campoForm">
+      <mat-label>Data de Nascimento</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="idade">
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+
+      <mat-error *ngIf="cadastroForm.controls.idade.hasError('required')">É obrigatório inserir a data de nascimento</mat-error>
+
+    </mat-form-field>
+
+
+    <br />
+
+    <mat-form-field class="example-full-width campoForm">
+        <mat-label>Peso (Kg)</mat-label>
+        <input type="number" matInput placeholder="Ex. 70" formControlName="peso">
+
+        <mat-error *ngIf="cadastroForm.controls.peso.hasError('required')">É obrigatório inserir o peso</mat-error>
+
+    </mat-form-field>
+
+    <br />
+
+    <mat-form-field class="example-full-width campoForm doenca">
+      <mat-label>Possui alguma doença cardíaca?</mat-label>
+      <mat-select (selectionChange)="ChangeOption($event)" matNativeControl required formControlName="doenca">
+      <mat-option   *ngFor="let opt of possuiDoenca" [value]="opt.value">
+      {{opt.viewValue}}
+      </mat-option>
+      </mat-select>
+
+      <mat-error *ngIf="cadastroForm.controls.doenca.hasError('required')">É obrigatório selecionar uma opção</mat-error>
+
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width campoForm doencaSeleciona" *ngIf="optionselected == 'sim'">
+      <mat-label>Qual doença?</mat-label>
+      <mat-select matNativeControl formControlName="doencaSeleciona">
+      <mat-option   *ngFor="let opt of doencas" [value]="opt.value">
+      {{opt.viewValue}}
+      </mat-option>
+      </mat-select>
+
+    </mat-form-field>
+
+    <br />
+
+
+    <button mat-flat-button color="primary" [disabled]="!cadastroForm.valid">Enviar</button>
+
+  </form>
+
+  <form class="example-form" [formGroup]="cadastroForm" (ngSubmit)="onEnviar()">
+
+    <mat-form-field class="example-full-width campoForm">
+      <mat-label>Contato 1</mat-label>
+      <input type="number" matInput placeholder="Ex. 11985835978" formControlName="contato1" maxlength="12">
+
+      <mat-error *ngIf="cadastroForm.controls.contato1.hasError('required')">É obrigatório inserir pelo menos 3 contatos</mat-error>
+      <mat-error *ngIf="cadastroForm.controls.contato1.hasError('min')">O contato deve ter pelo menos 11 números</mat-error>
+      <mat-error *ngIf="cadastroForm.controls.contato1.hasError('max')">O contato deve ter até 12 números</mat-error>
+
+
+    </mat-form-field>
+
+    <br />
+
+    <mat-form-field class="example-full-width campoForm">
+      <mat-label>Contato 2</mat-label>
+      <input type="number" matInput placeholder="Ex. 11985835978" formControlName="contato2">
+
+      <mat-error *ngIf="cadastroForm.controls.contato2.hasError('required')">É obrigatório inserir pelo menos 3 contatos</mat-error>
+      <mat-error *ngIf="cadastroForm.controls.contato2.hasError('min')">O contato deve ter pelo menos 11 números</mat-error>
+      <mat-error *ngIf="cadastroForm.controls.contato2.hasError('max')">O contato deve ter até 12 números</mat-error>
+
+    </mat-form-field>
+
+    <br />
+
+    <mat-form-field class="example-full-width campoForm">
+      <mat-label>Contato 3</mat-label>
+      <input type="number" matInput placeholder="Ex. 11985835978" formControlName="contato3">
+
+      <mat-error *ngIf="cadastroForm.controls.contato3.hasError('required')">É obrigatório inserir pelo menos 3 contatos</mat-error>
+      <mat-error *ngIf="cadastroForm.controls.contato3.hasError('min')">O contato deve ter pelo menos 11 números</mat-error>
+      <mat-error *ngIf="cadastroForm.controls.contato3.hasError('max')">O contato deve ter até 12 números</mat-error>
+
+    </mat-form-field>
+
+  </form>
+</div>
+

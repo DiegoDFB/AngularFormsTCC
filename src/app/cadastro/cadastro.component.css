@@ -1,0 +1,42 @@
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.bg {
+  background-color: rgb(109, 109, 109);
+  width: 100vw;
+  height: 800px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+form {
+  border-radius: 10px;
+  padding: 30px;
+  background-color: rgb(85, 85, 85);
+  margin: 20px 35px 20px 35px;
+  width: 800px;
+}
+
+h1 {
+  background-color: rgb(85, 85, 85);
+  padding: 10px;
+  border-radius: 10px;
+  color: rgb(200, 200, 200);
+}
+
+.campoForm {
+  margin-bottom: 30px;
+}
+
+.doenca {
+  width: 400px
+}
+
+.doencaSeleciona {
+  width: 300px;
+}
